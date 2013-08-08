@@ -1,0 +1,15 @@
+%% Character classes
+$LETTER [A-Za-z]
+$UPPER  [^a-z] IN $LETTER
+$LOWER  [a-z]
+$DIGIT  [0-9]
+$SPACE  (_|\-)
+$ESCAPE (\ | \$ | \| | \\ | \( | \))
+$PUNCTUATION \. | , | ; | : | ! | \? | \- | \'
+
+%% Token classes
+$WORD	$UPPER | ($LOWER)+
+$NAME	$UPPER ($LOWER)+
+$YEAR	$DIGIT $DIGIT $DIGIT $DIGIT
+$NUMBER ($DIGIT)+
+$PUNC	$PUNCTUATION

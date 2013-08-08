@@ -1,0 +1,27 @@
+%% Character classes
+$LETTER     [A-Za-z]
+$UPPER      [A-Z]
+$LOWER      [a-z]
+$DIGIT      [0-9]
+$HEXDIGIT   $DIGIT | [a-fA-F]
+
+%% Token classes
+%% This is a significantly reduced subset of the Java specification.
+$VISIBILITY     public | protected | private
+$MODIFIER       static | final | synchronized
+$TYPE           char | short | int | long | float | double | String
+$RESERVED       if | else | do | while | for | null | switch | case | throw | new | this | void | return
+$TEST           == | != | < | > | <= | >= | && | \|\| | !
+$ASSIGN         = | \+= | \-= | \*= | /=
+$OPERATOR       \+ | \- | \* | / | \+\+ | \-\-
+$VARIABLE       ($LETTER | _)+
+$INT            (\-($DIGIT)+ | ($DIGIT)+) | 0x ($HEXDIGIT)+ | 0b (0|1)+
+$CHAR           \'.\'
+$STRING         \"($LETTER | $DIGIT | \- | \. | \' | \\\" | \  | _ | , | !)*\"
+$OPAREN         \(
+$CPAREN         \)
+$OBRACKET       \[
+$CBRACKET       \]
+$OBRACE         {
+$CBRACE         }
+$SEMICOLON      ;

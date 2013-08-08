@@ -1,0 +1,15 @@
+public static void main(String[] args)
+{
+    private int count = 0;
+    protected final char EPSILON = 0xCAFEBABE;
+    if (EPSILON == count) {
+        synchronized(this) {
+            count = 0b1111;
+            while (count > 0)
+                count *= --count;
+        }
+    } else {
+        count++;
+        throw new Exception("Something went wrong!");
+    }
+}

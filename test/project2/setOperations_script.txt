@@ -1,0 +1,10 @@
+begin
+theDiff = find '([a-z])+' in "file4.txt" diff find '([a-z])+' in "file5.txt";
+print(theDiff);
+
+theUnion = find '([a-z])+' in "file4.txt" union find '([a-z])+' in "file5.txt";
+print(theUnion);
+
+theInter = find '([a-z])+' in "file4.txt" inters find '([a-z])+' in "file5.txt";
+print(theInter);
+end

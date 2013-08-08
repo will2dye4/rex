@@ -1,0 +1,6 @@
+begin
+stringList = find '([a-z])+' in "file4.txt";
+max = maxfreqstring(stringList);
+num = #stringList;
+print(stringList, max, num);
+end

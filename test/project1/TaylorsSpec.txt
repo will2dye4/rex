@@ -1,0 +1,15 @@
+%% Character classes
+$LETTER		[A-Za-z]
+$UPPER		[^a-z] IN $LETTER
+$LOWER		[a-z]
+$DIGIT		[0-9]
+$HEXDIGIT	[0-9A-Fa-f]
+
+%% Token classes
+$SPECIFIC	this | can | be | any | one | of | these | words
+$HEX		0x($HEXDIGIT)+
+$INT		($DIGIT)+
+$DECIMAL	($DIGIT)*\.($DIGIT)+
+$FOO		($DIGIT)+($LOWER)*(WAt)+(ohai | orly | yahai | ihardlyknowher)
+$NESTED		(($HEXDIGIT | $UPPER)+notint | nestedRegexWorksToo )
+$ESCAPE		\+ | \- | \* | \\ | WeCanEscapeFancyChars

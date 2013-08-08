@@ -1,0 +1,12 @@
+%% Character classes
+$ALPHA     [A-Za-z]
+$UPPER      [A-Z]
+$LOWER      [a-z]
+$DIGIT      [0-9]
+$SIGN 		(\$ | \- | \+ | \( | \) | \. | , | ! | \?)
+$SPACE		(\ )
+
+%% Token classes
+$MONEY		\$(($DIGIT) | ($DIGIT $DIGIT) | ($DIGIT $DIGIT $DIGIT)) (, $DIGIT $DIGIT $DIGIT)* \. $DIGIT $DIGIT
+$WORD		($ALPHA)+ ($SIGN)*
+$NUMBER		(($DIGIT) | ($DIGIT $DIGIT) | ($DIGIT $DIGIT $DIGIT)) (, $DIGIT $DIGIT $DIGIT)*

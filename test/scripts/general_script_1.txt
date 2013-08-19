@@ -1,0 +1,7 @@
+begin
+recursivereplace '[^f-x] IN [a-z]' with "q" in "script_input_1.txt" >! "script_input_4.txt";
+replaced = find '([a-zA-Z])*q([a-zA-Z])*' in "script_input_4.txt";
+max = maxfreqstring(replaced);
+print(replaced, max);
+regex = find '\* | \+ | \- | \' | \\ | \"' in "script_input_2.txt";
+end

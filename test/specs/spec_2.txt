@@ -1,0 +1,13 @@
+%% Character classes
+$LETTER		[A-Za-z]
+$UPPER		[^a-z] IN $LETTER
+$LOWER		[a-z]
+$DIGIT		[0-9]
+
+%% Token classes
+$BIGTITLE ($UPPER)+(!)
+$TITLE ($LETTER)+ :
+$NAME ($UPPER)($LOWER)+
+$WORD ($LOWER)+
+$NUM ($DIGIT)+
+$PUNCTUATION (\. | , | ; | : | !)

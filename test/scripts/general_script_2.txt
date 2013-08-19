@@ -1,0 +1,6 @@
+begin
+matches = find '([A-Z a-z])*ment([A-Z a-z])*' in "script_input_1.txt" inters find '(A|a) ([A-Z a-z])*' in "script_input_2.txt";
+n_matches = #matches;
+print (n_matches);
+recursivereplace '([A-Za-z])*ment' with "" in "script_input_1.txt" >! "script_input_6.txt";
+end

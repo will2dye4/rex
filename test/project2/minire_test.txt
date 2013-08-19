@@ -1,7 +1,0 @@
-begin
-recursivereplace '[^f-x] IN [a-z]' with "q" in "file1.txt" >! "file4.txt";
-replaced = find '([a-zA-Z])*q([a-zA-Z])*' in "file4.txt";
-max = maxfreqstring(replaced);
-print(replaced, max);
-regex = find '\* | \+ | \- | \' | \\ | \"' in "file2.txt";
-end

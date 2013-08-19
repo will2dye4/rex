@@ -1,4 +1,0 @@
-begin
-theDiff = find '([a-z])+' in "file4.txt" diff find '([a-z])+' in "file5.txt";
-print(theDiff);
-end

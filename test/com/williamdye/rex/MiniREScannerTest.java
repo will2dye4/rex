@@ -17,24 +17,33 @@ public class MiniREScannerTest
         System.setOut(new PrintStream(outputStream));
     }
 
+    @Before
+    public void resetOutputStream()
+    {
+        outputStream.reset();
+    }
+
     @Test
     public void invokingMainWithOneArgumentPrintsUsage()
     {
-        final String output = invokeMain(new String[] {"foo.txt"});
+        final String output = invokeMain("foo.txt");
         assertTrue(output.startsWith("Usage:"));
     }
 
     @Test
     public void invokingMainWithInvalidSpecFilePrintsError()
     {
-        final String output = invokeMain(new String[] {"foo.txt", "bar.txt"});
+        final String output = invokeMain("foo.txt", "bar.txt");
         assertTrue(output.startsWith("Invalid file path:"));
     }
 
-    private String invokeMain(final String[] args)
+    private String invokeMain(String... args)
     {
         MiniREScanner.main(args);
-        return outputStream.toString();
+        String output = outputStream.toString();
+        if (output.startsWith("Welcome"))
+            output = output.substring(output.indexOf('\n') + 1);
+        return output;
     }
 
 }

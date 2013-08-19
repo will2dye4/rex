@@ -28,24 +28,24 @@ public class MiniREScanner
      * The entry point for the program.
      * @param args the names of the files containing the lexical specification and input to test
      */
-	public static void main(String[] args)
-	{
+    public static void main(String[] args)
+    {
         if (args.length < 2) {
             out("Usage: java ScannerDriver <lexical-specification> <input-file> [<input-file> ...]");
             return;
         }
-		
-		out("Welcome to the Scanner Generator!");
+
+        out("Welcome to the Scanner Generator!");
 
         File spec = new File(args[0]);
-		if (!spec.exists()) {
-			out("Invalid file path: could not find file \"" + args[0] + "\".");
-			return;
-		}
+        if (!spec.exists()) {
+            out("Invalid file path: could not find file \"" + args[0] + "\".");
+            return;
+        }
 		
-		/* spec file -> primitive NFAs */ 
-		print("Parsing lexical specification \"" + args[0] + "\" ...");
-		Set<NFA> nfas;
+		/* spec file -> primitive NFAs */
+        print("Parsing lexical specification \"" + args[0] + "\" ...");
+        Set<NFA> nfas;
         try {
             nfas = parseSpecFile(spec);
         } catch (ParseException except) {
@@ -69,13 +69,13 @@ public class MiniREScanner
         DFA dfa = NFAToDFAConverter.convert(combinedNFA, stateMap);
         
 		/* DFA table + input file(s) -> table walker -> tokens */
-		out(" Done.\n");
+        out(" Done.\n");
         Scanner scan = new Scanner(System.in);
         scan.useDelimiter("");
         for (int i = 1; i < args.length; i++) {
             File source = new File(args[i]);
-		    if (!source.exists())
-			    out("Invalid file path: skipping \"" + args[i] + "\".");
+            if (!source.exists())
+                out("Invalid file path: skipping \"" + args[i] + "\".");
             else {
                 final String KEY = (System.getProperty("os.name").contains("Mac") ? "Return" : "Enter");
                 print("Ready to traverse input file \"" + args[i] + "\". Press " + KEY + " to continue. ");
@@ -87,7 +87,7 @@ public class MiniREScanner
         scan.close();
 
         out("Finished reading all input files. Goodbye!");
-	}
+    }
 
     /* Parses the specification file and returns a list of NFAs corresponding to
      * the character classes and token classes in the specification. */
@@ -125,18 +125,18 @@ public class MiniREScanner
     }
 
 
-	/* Combines a list of NFAs by creating a new NFA and adding an epsilon transition
-	 * from the new start state to each NFA in the list. */
+    /* Combines a list of NFAs by creating a new NFA and adding an epsilon transition
+     * from the new start state to each NFA in the list. */
     private static NFA combinePrimitiveNFAs(Set<NFA> nfas)
     {
         NFA combined = new NFAImpl("<COMBINED>", false);
         State start = combined.getStartState();
         start.setAccepting(false);
-		for (NFA nfa : nfas) {
+        for (NFA nfa : nfas) {
             combined.addAllStates(nfa.getStates());
-			start.addTransition(NFAImpl.EPSILON, nfa.getStartState());
+            start.addTransition(NFAImpl.EPSILON, nfa.getStartState());
         }
-		return combined;
+        return combined;
     }
 
     /* Walks through the specified DFA using the source file as input and prints the tokens it finds. */
@@ -144,11 +144,11 @@ public class MiniREScanner
     {
         final int MAX = getMaxStringLength(map.keySet());
         TableWalker walker = new TableWalkerImpl(dfa, source, map);
-	    SourceToken token;
-		while (walker.hasNextToken()) {
+        SourceToken token;
+        while (walker.hasNextToken()) {
             token = walker.getNextToken();
-			out(String.format("%1$-" + MAX + "s\t", token.getTokenType()) + token.getTokenString());
-		}
+            out(String.format("%1$-" + MAX + "s\t", token.getTokenType()) + token.getTokenString());
+        }
     }
 
     /* Returns a list of the character-class NFAs in the specified list,
@@ -195,11 +195,11 @@ public class MiniREScanner
     {
         System.out.print(message);
     }
-	
+
     /* A thin wrapper around System.out.println() for convenience. */
     private static void out(String message)
     {
         System.out.println(message);
     }
-	
+
 }

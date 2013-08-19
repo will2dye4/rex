@@ -24,6 +24,7 @@ public interface MiniREString
      * Adds the given metadata to a MiniREString's list
      * @param meta the metadata to add to this MiniREString
      */
+    @SuppressWarnings("unused")
 	public void addMetadata(Metadata meta);
 	
 	/**

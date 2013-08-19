@@ -57,6 +57,7 @@ public interface State
      * @param states the states to which to transition
      * @return <code>true</code> if the transitions were added successfully, <code>false</code> otherwise
      */
+    @SuppressWarnings("unused")
     public boolean setTransition(char c, Set<State> states);
 
     /**

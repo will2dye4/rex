@@ -28,6 +28,7 @@ public interface FiniteStateAutomaton
      * Accessor for the number of states an automaton contains.
      * @return the number of states the automaton contains
      */
+    @SuppressWarnings("unused")
     public int getNumStates();
 
     /**
@@ -65,6 +66,7 @@ public interface FiniteStateAutomaton
      * Returns <code>true</code> if an automaton is deterministic.
      * @return <code>true</code> if the automaton is a DFA, <code>false</code> otherwise
      */
+    @SuppressWarnings("unused")
     public boolean isDeterministic();
 
     /**

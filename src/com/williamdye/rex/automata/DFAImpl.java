@@ -18,6 +18,7 @@ public class DFAImpl extends FiniteStateAutomatonImpl implements DFA
     /**
      * Creates a <code>DFAImpl</code> with no identifier.
      */
+    @SuppressWarnings("unused")
     public DFAImpl()
     {
         this(null, false);

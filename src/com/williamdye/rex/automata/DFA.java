@@ -15,6 +15,7 @@ public interface DFA extends FiniteStateAutomaton
      * @param from the state from which to transition
      * @return the state to which the DFA transitions
      */
+    @SuppressWarnings("unused")
     public State transition(char c, State from);
 
 }

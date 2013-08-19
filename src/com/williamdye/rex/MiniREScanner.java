@@ -171,7 +171,7 @@ public class MiniREScanner
     private static String formatNFAList(Set<NFA> list)
     {
         String result = (list.size() == 0 ? "<none>" : "");
-        NFA[] nfas = list.toArray(new NFA[0]);
+        NFA[] nfas = list.toArray(new NFA[list.size()]);
         for (int i = 0; i < nfas.length; i++)
             result += (i == 0 ? "" : ", ") + nfas[i].getIdentifier();
         return result;
@@ -191,15 +191,15 @@ public class MiniREScanner
     }
 
     /* A thin wrapper around System.out.print() for convenience. */
-	private static void print(String message)
-	{
-		System.out.print(message);
-	}
+    private static void print(String message)
+    {
+        System.out.print(message);
+    }
 	
-	/* A thin wrapper around System.out.println() for convenience. */
-	private static void out(String message)
-	{
-		System.out.println(message);
-	}
+    /* A thin wrapper around System.out.println() for convenience. */
+    private static void out(String message)
+    {
+        System.out.println(message);
+    }
 	
 }

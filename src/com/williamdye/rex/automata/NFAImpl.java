@@ -112,6 +112,7 @@ public class NFAImpl extends FiniteStateAutomatonImpl implements NFA
         /**
          * Default constructor. Creates a new, non-accepting <code>NFAState</code>.
          */
+        @SuppressWarnings("unused")
         protected NFAState()
         {
             this(false);

@@ -62,14 +62,8 @@ public class MiniREStringImpl implements MiniREString
 	@Override
 	public boolean equals(Object o)
 	{
-        boolean same;
-        if (o == null || o.getClass() != getClass())
-            same = false;
-        else if (o == this)
-            same = true;
-        else
-		    same = getString().equals(((MiniREStringImpl) o).getString());
-        return same;
+        return (o != null && o.getClass() == this.getClass() &&
+                (o == this || this.getString().equals(((MiniREStringImpl)o).getString())));
 	}
 
 }

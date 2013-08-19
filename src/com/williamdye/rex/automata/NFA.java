@@ -17,6 +17,7 @@ public interface NFA extends FiniteStateAutomaton
      * @param from the state from which to transition
      * @return the set of states to which the NFA may legally transition
      */
+    @SuppressWarnings("unused")
     public Set<State> transition(char c, State from);
 
     /**
